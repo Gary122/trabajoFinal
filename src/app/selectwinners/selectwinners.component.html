@@ -1,20 +1,20 @@
 <div class="mx-auto text-center col-xl-6">
   <div class="container">
-      <h2 class="d-none">Select Number of Winners</h2>
-      <p>Enter the Number of Winners you wish to select from the total Number of Contestant, click shuffle then click view Winners</p>
+      <h2 class="d-none">Seleccione el número de ganadores</h2>
+      <p>Ingrese el número de ganadores que desea seleccionar del número total de concursantes, haga clic en barajar y luego en ver ganador</p>
       <small class="text-secondary">Contestants Data gotten from Google Sheets</small>
       <div class="border rounded-lg p-3 m-3 p-md-5">
           <form #form="ngForm" (ngSubmit)="onSubmit(form)" *ngIf="selectmode">
             <h3 class="text-nowrap"><i class="fas fa-users"></i> {{contestants?.length}}</h3>
             <div class="form-group">
-                <Label for="numberOfWinners">Enter Number of Winners</Label>
+                <Label for="numberOfWinners">Ingrese el número de ganadores</Label>
                 <div class="mx-auto">
-                  <input [(ngModel)]="numberOfWinners" class="form-control mb-3" type="number" name="numberOfWinners" id="numberOfWinners" placeholder="Number of Winners"
+                  <input [(ngModel)]="numberOfWinners" class="form-control mb-3" type="number" name="numberOfWinners" id="numberOfWinners" placeholder="Número de ganadores"
                   required #numberOfWinnersField="ngModel">
-                  <button type="submit" class="btn btn-primary w-100">Shuffle</button>
+                  <button type="submit" class="btn btn-primary w-100">Generar</button>
                   <p><small [hidden]='!form.submitted || numberOfWinnersField.valid'
                     class="text-danger">
-                        {{'Please Enter the number of winners.'}}
+                        {{'Por favor ingrese el número de ganadores.'}}
                     </small><br/>
                     <small class="text-danger" [hidden]='!err'>
                       {{err}}
@@ -23,10 +23,10 @@
             </div>
           </form>
           <div *ngIf="!selectmode">
-            <P>You selected <strong>{{numberOfWinners}}</strong> winners from <strong>{{contestants.length}}</strong> contestants</P>
-            <p class="text-secondary">Click the button below to view winners</p>
+            <P>Seleccionaste <strong>{{numberOfWinners}}</strong> ganadores de <strong>{{contestants.length}}</strong> participantes</P>
+            <p class="text-secondary"> Haga clic en el botón de abajo para ver a los ganadores.</p>
             <app-modal [contestants]="contestants" [winnersArray]="winnersArray"></app-modal>
-            <button class="btn btn-lg btn-secondary m-2" (click)="back()">Back</button>
+            <button class="btn btn-lg btn-secondary m-2" (click)="back()">Atras</button>
           </div>
       </div>
       <hr/>

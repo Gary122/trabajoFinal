@@ -9,7 +9,7 @@ import { Contestants } from './models/contestants';
 })
 export class AppComponent implements OnInit {
   contestants: Contestants[];
-  title = 'NG E-Raffle Draw';
+  title = 'Sorteo de premios';
   errorMessage: string;
 
   constructor(private contestantsService: ContestantsService) {}
